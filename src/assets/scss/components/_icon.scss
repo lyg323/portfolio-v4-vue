@@ -1,0 +1,10 @@
+.icon {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: no-repeat center / contain;
+
+  &-arrow-out {
+    background-image: url('/assets/images/icon/arrow_outward.svg');
+  }
+}

@@ -1,0 +1,53 @@
+// Breakpoints
+@mixin media-large-down {
+  @media (max-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin media-medium-down {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin media-small-down {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+// Blind
+@mixin blind {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+// Ellipsis
+@mixin ellipsis($lines: 1) {
+  @if ($lines==1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Spacing
+@mixin mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

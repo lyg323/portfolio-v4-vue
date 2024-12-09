@@ -1,0 +1,63 @@
+@use '@/assets/scss/abstracts/_mixins.scss' as *;
+@use '@/assets/scss/abstracts/_variables.scss' as *;
+
+::selection {
+  color: $color-white;
+  background-color: $color-black;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media-large-down {
+    font-size: 9px;
+  }
+
+  @include media-medium-down {
+    font-size: 8px;
+  }
+
+  @include media-small-down {
+    font-size: 7px;
+  }
+}
+
+body {
+  height: 100%;
+  color: $color-black;
+  font: 400 1.6rem/1.2 -apple-system, BlinkMacSystemFont,
+    AppleSDGothicNeo-regular, 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕',
+    '돋움', Dotum, Sans-serif;
+
+  &.fixed {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.blind {
+  @include blind;
+}
+
+// Container
+.container {
+  width: 140rem;
+  max-width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.section {
+  position: relative;
+}

@@ -1,0 +1,25 @@
+@use '@/assets/scss/abstracts/_mixins.scss' as *;
+@use '@/assets/scss/abstracts/_variables.scss' as *;
+
+.dark {
+  &:root {
+    --color-black: #fff;
+    --color-white: #000;
+    --color-gray: #ddd;
+    --color-light-gray: #666;
+
+    --color-background-1: 123, 104, 238; // MediumSlateBlue
+    --color-background-2: 192, 192, 192; // Silver
+    --color-background-3: 100, 149, 237; // CornflowerBlue
+  }
+
+  color: $color-black;
+
+  body {
+    background: $color-white;
+  }
+
+  .icon-arrow-out {
+    filter: invert(1);
+  }
+}

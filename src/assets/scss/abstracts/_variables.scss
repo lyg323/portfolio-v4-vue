@@ -1,0 +1,30 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray: #444;
+  --color-light-gray: #bbb;
+
+  --color-background-1: 123, 104, 238; // MediumSlateBlue
+  --color-background-2: 192, 192, 192; // Silver
+  --color-background-3: 100, 149, 237; // CornflowerBlue
+}
+
+// Color
+$color-black: var(--color-black);
+$color-white: var(--color-white);
+$color-gray: var(--color-gray);
+$color-light-gray: var(--color-light-gray);
+
+$color-background-2: var(--color-background-2);
+
+$color-background: (
+  1: var(--color-background-1),
+  2: var(--color-background-2),
+  3: var(--color-background-3),
+);
+
+// Z index
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+
+$opacity: 0.5;
