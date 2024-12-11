@@ -1,8 +1,59 @@
 <template>
   <section id="project" class="section project">
     <ul class="project-list">
-      <!-- project-item -->
-      <li class="project-item">
+      <li class="project-item" v-for="project in data" :key="project.id">
+        <div class="project-title">
+          <h2>{{ project.name }}</h2>
+          <p>{{ project.role }}</p>
+          <a
+            class="button project-button"
+            href="https://datalab.samsungcard.com/"
+            target="_blank"
+          >
+            <span>VISIT</span>
+            <i class="icon icon-arrow-out"></i>
+          </a>
+        </div>
+        <div class="project-image-wrap">
+          <!-- <div class="project-image project-image-pc project-image-slide">
+            <img
+              class="active"
+              src="@/assets/images/project/datalab_01.png"
+              alt=""
+            />
+            <img src="@/assets/images/project/datalab_03.png" alt="" />
+            <img src="@/assets/images/project/datalab_05.png" alt="" />
+          </div>
+          <div class="project-image project-image-mobile">
+            <img src="@/assets/images/project/datalab_02.png" alt="" />
+          </div>
+          <div class="project-image project-image-mobile">
+            <img src="@/assets/images/project/datalab_04.png" alt="" />
+          </div> -->
+        </div>
+        <div class="project-desc">
+          <p class="project-number">
+            <span class="project-number-current"></span> <i>/</i>
+            <span class="project-number-total"></span>
+          </p>
+          <ul class="project-desc-list">
+            <li>
+              <span>스킬</span>
+              <p>HTML, CSS, SASS, jQuery</p>
+            </li>
+            <li>
+              <span>기간</span>
+              <p>2024. 01 - 2024. 04</p>
+            </li>
+            <li>
+              <span>참여도</span>
+              <p>50%</p>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- <li class="project-item">
         <div class="project-title">
           <h2>삼성카드 <br />데이터랩</h2>
           <p>
@@ -56,9 +107,7 @@
           </ul>
         </div>
       </li>
-      <!-- //project-item -->
 
-      <!-- project-item -->
       <li class="project-item">
         <div class="project-title">
           <h2>삼성카드</h2>
@@ -120,9 +169,7 @@
           </ul>
         </div>
       </li>
-      <!-- //project-item -->
 
-      <!-- project-item -->
       <li class="project-item">
         <div class="project-title">
           <h2>펫팟</h2>
@@ -177,9 +224,7 @@
           </ul>
         </div>
       </li>
-      <!-- //project-item -->
 
-      <!-- project-item -->
       <li class="project-item">
         <div class="project-title">
           <h2>키디키디</h2>
@@ -219,9 +264,7 @@
           </ul>
         </div>
       </li>
-      <!-- //project-item -->
 
-      <!-- project-item -->
       <li class="project-item">
         <div class="project-title">
           <h2>NESPDF</h2>
@@ -260,14 +303,14 @@
             </li>
           </ul>
         </div>
-      </li>
-      <!-- //project-item -->
+      </li> -->
     </ul>
   </section>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+import { data } from '../assets/data';
 
 onMounted(() => {
   const projectImageSlides = document.querySelectorAll('.project-image-slide');

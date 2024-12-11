@@ -8,33 +8,33 @@ import Hero from './components/Hero.vue';
 
 onMounted(() => {
   // Loading
-  const loading = document.querySelector('.loading');
-  const loadingCirclePercent = loading.querySelector('.circle-percent');
-  const loadingCircleBar = loading.querySelector('.circle-bar');
-  const home = document.querySelector('.home');
-  const initialStrokeDashoffset = (loadingCircleBar.getTotalLength() + 1) / 10;
-  let percent = 0;
+  // const loading = document.querySelector('.loading');
+  // const loadingCirclePercent = loading.querySelector('.circle-percent');
+  // const loadingCircleBar = loading.querySelector('.circle-bar');
+  // const home = document.querySelector('.home');
+  // const initialStrokeDashoffset = (loadingCircleBar.getTotalLength() + 1) / 10;
+  // let percent = 0;
 
-  const updateLoading = () => {
-    if (percent < 100) {
-      percent += 1;
-      let strokeDashoffsetValue = Math.ceil(
-        initialStrokeDashoffset - (initialStrokeDashoffset / 100) * percent
-      );
+  // const updateLoading = () => {
+  //   if (percent < 100) {
+  //     percent += 1;
+  //     let strokeDashoffsetValue = Math.ceil(
+  //       initialStrokeDashoffset - (initialStrokeDashoffset / 100) * percent
+  //     );
 
-      loadingCirclePercent.textContent = `${percent}%`;
-      loadingCircleBar.style.strokeDashoffset = `${strokeDashoffsetValue}rem`;
+  //     loadingCirclePercent.textContent = `${percent}%`;
+  //     loadingCircleBar.style.strokeDashoffset = `${strokeDashoffsetValue}rem`;
 
-      setTimeout(updateLoading, 25);
-    } else {
-      loading.classList.add('hide');
-      home.classList.remove('hide');
-      document.body.classList.remove('fixed');
-      document.querySelector('.hero-circle').classList.add('animation');
-    }
-  };
+  //     setTimeout(updateLoading, 25);
+  //   } else {
+  //     loading.classList.add('hide');
+  //     home.classList.remove('hide');
+  //     document.body.classList.remove('fixed');
+  //     document.querySelector('.hero-circle').classList.add('animation');
+  //   }
+  // };
 
-  updateLoading();
+  // updateLoading();
 
   // Cursor
   const bgShapeCursor = document.querySelector('.bg-shape-cursor');
@@ -84,8 +84,9 @@ onMounted(() => {
 
 <template>
   <div class="wrapper">
-    <Loading />
-    <div class="home hide">
+    <!-- <Loading /> -->
+    <!-- <div class="home hide"> -->
+    <div class="home">
       <Header />
       <div class="bg">
         <div class="bg-shape bg-shape-cursor"></div>
