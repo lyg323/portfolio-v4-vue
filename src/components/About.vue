@@ -80,7 +80,6 @@ const skills = ref([
   { title: 'SASS' },
   { title: 'SCSS', text: 'SCSS' },
   { title: 'JavaScript', text: 'ES6+' },
-  { title: 'ES6+' },
   { title: 'jQuery' },
   { title: 'Vue' },
   { title: 'React' },
