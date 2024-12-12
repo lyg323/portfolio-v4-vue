@@ -35,6 +35,8 @@ const homeSection = ref(null);
 const bg = ref(null);
 
 onMounted(() => {
+  document.body.classList.add('fixed');
+
   // Loading
   loading.value = document.querySelector('.loading');
   loadingCirclePercent.value = loading.value.querySelector('.circle-percent');
