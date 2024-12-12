@@ -47,8 +47,6 @@ onMounted(() => {
     (loadingCircleBar.value.getTotalLength() + 1) / 10;
   let percent = 0;
 
-  loadingCirclePercent.value.textContent = `${percent}%`;
-
   const updateLoading = () => {
     if (percent < 100) {
       percent += 1;
@@ -56,7 +54,6 @@ onMounted(() => {
         initialStrokeDashoffset - (initialStrokeDashoffset / 100) * percent
       );
 
-      loadingCirclePercent.value.textContent = `${percent}%`;
       loadingCircleBar.value.style.strokeDashoffset = `${strokeDashoffsetValue}rem`;
 
       setTimeout(updateLoading, 25);

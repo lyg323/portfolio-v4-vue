@@ -7,7 +7,7 @@
       </svg>
       <span class="circle-line"></span>
       <div class="circle-content">
-        <p class="circle-percent">0%</p>
+        <p class="circle-percent"></p>
       </div>
     </div>
   </div>
