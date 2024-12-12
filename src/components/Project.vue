@@ -16,11 +16,11 @@
             v-if="project.imgPc1"
           >
             <img
-              :src="`./src/${src}`"
               alt=""
-              v-for="(src, i) in project.imgPc1"
+              v-for="(imgSrc, i) in project.imgPc1"
               :key="i"
               :class="{ active: i === 0 }"
+              :src="imgSrc"
             />
           </div>
           <div
@@ -28,11 +28,11 @@
             v-if="project.imgMo1"
           >
             <img
-              :src="'./src/' + src"
               alt=""
-              v-for="(src, i) in project.imgMo1"
+              v-for="(imgSrc, i) in project.imgMo1"
               :key="i"
               :class="{ active: i === 0 }"
+              :src="imgSrc"
             />
           </div>
           <div
@@ -40,11 +40,11 @@
             v-if="project.imgMo2"
           >
             <img
-              :src="'./src/' + src"
               alt=""
-              v-for="(src, i) in project.imgMo2"
+              v-for="(imgSrc, i) in project.imgMo2"
               :key="i"
               :class="{ active: i === 0 }"
+              :src="imgSrc"
             />
           </div>
           <div
@@ -52,11 +52,11 @@
             v-if="project.imgMo3"
           >
             <img
-              :src="'./src/' + src"
               alt=""
-              v-for="(src, i) in project.imgMo3"
+              v-for="(imgSrc, i) in project.imgMo3"
               :key="i"
               :class="{ active: i === 0 }"
+              :src="imgSrc"
             />
           </div>
           <div
@@ -64,11 +64,11 @@
             v-if="project.imgMo4"
           >
             <img
-              :src="'./src/' + src"
               alt=""
-              v-for="(src, i) in project.imgMo4"
+              v-for="(imgSrc, i) in project.imgMo4"
               :key="i"
               :class="{ active: i === 0 }"
+              :src="imgSrc"
             />
           </div>
         </div>
