@@ -56,7 +56,7 @@ onMounted(() => {
 
       loadingCircleBar.value.style.strokeDashoffset = `${strokeDashoffsetValue}rem`;
 
-      setTimeout(updateLoading, 25);
+      setTimeout(updateLoading, 15);
     } else {
       loading.value.classList.add('hide');
       home.value.classList.remove('hide');
