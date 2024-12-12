@@ -47,6 +47,8 @@ onMounted(() => {
     (loadingCircleBar.value.getTotalLength() + 1) / 10;
   let percent = 0;
 
+  loadingCirclePercent.value.textContent = `${percent}%`;
+
   const updateLoading = () => {
     if (percent < 100) {
       percent += 1;
