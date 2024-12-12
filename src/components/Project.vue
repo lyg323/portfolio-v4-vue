@@ -1,322 +1,113 @@
 <template>
   <section id="project" class="section project">
     <ul class="project-list">
-      <li class="project-item" v-for="project in data" :key="project.id">
+      <li class="project-item" v-for="(project, i) in data" :key="project.id">
         <div class="project-title">
           <h2>{{ project.name }}</h2>
           <p>{{ project.role }}</p>
-          <a
-            class="button project-button"
-            href="https://datalab.samsungcard.com/"
-            target="_blank"
-          >
+          <a class="button project-button" :href="project.link" target="_blank">
             <span>VISIT</span>
             <i class="icon icon-arrow-out"></i>
           </a>
         </div>
         <div class="project-image-wrap">
-          <!-- <div class="project-image project-image-pc project-image-slide">
+          <div
+            class="project-image project-image-pc project-image-slide"
+            v-if="project.imgPc1"
+          >
             <img
-              class="active"
-              src="@/assets/images/project/datalab_01.png"
+              :src="`./src/${src}`"
               alt=""
+              v-for="(src, i) in project.imgPc1"
+              :key="i"
+              :class="{ active: i === 0 }"
             />
-            <img src="@/assets/images/project/datalab_03.png" alt="" />
-            <img src="@/assets/images/project/datalab_05.png" alt="" />
           </div>
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/datalab_02.png" alt="" />
+          <div
+            class="project-image project-image-mobile project-image-slide"
+            v-if="project.imgMo1"
+          >
+            <img
+              :src="'./src/' + src"
+              alt=""
+              v-for="(src, i) in project.imgMo1"
+              :key="i"
+              :class="{ active: i === 0 }"
+            />
           </div>
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/datalab_04.png" alt="" />
-          </div> -->
+          <div
+            class="project-image project-image-mobile project-image-slide"
+            v-if="project.imgMo2"
+          >
+            <img
+              :src="'./src/' + src"
+              alt=""
+              v-for="(src, i) in project.imgMo2"
+              :key="i"
+              :class="{ active: i === 0 }"
+            />
+          </div>
+          <div
+            class="project-image project-image-mobile project-image-slide"
+            v-if="project.imgMo3"
+          >
+            <img
+              :src="'./src/' + src"
+              alt=""
+              v-for="(src, i) in project.imgMo3"
+              :key="i"
+              :class="{ active: i === 0 }"
+            />
+          </div>
+          <div
+            class="project-image project-image-mobile project-image-slide"
+            v-if="project.imgMo4"
+          >
+            <img
+              :src="'./src/' + src"
+              alt=""
+              v-for="(src, i) in project.imgMo4"
+              :key="i"
+              :class="{ active: i === 0 }"
+            />
+          </div>
         </div>
         <div class="project-desc">
           <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
+            <span class="project-number-current">{{ i + 1 }}</span>
+            <i> / </i>
+            <span class="project-number-total">{{ data.length }}</span>
           </p>
           <ul class="project-desc-list">
             <li>
               <span>스킬</span>
-              <p>HTML, CSS, SASS, jQuery</p>
+              <p>{{ project.skill }}</p>
             </li>
             <li>
               <span>기간</span>
-              <p>2024. 01 - 2024. 04</p>
+              <p>{{ project.period }}</p>
             </li>
             <li>
               <span>참여도</span>
-              <p>50%</p>
+              <p>{{ project.engagement }}</p>
             </li>
           </ul>
         </div>
       </li>
-
-      <!-- <li class="project-item">
-        <div class="project-title">
-          <h2>삼성카드 <br />데이터랩</h2>
-          <p>
-            헤더 등 전체 레이아웃, 회원 전체 프로세스, BLUE 인덱스 메뉴, Press
-            Release 메뉴 구축
-          </p>
-          <a
-            class="button project-button"
-            href="https://datalab.samsungcard.com/"
-            target="_blank"
-          >
-            <span>VISIT</span>
-            <i class="icon icon-arrow-out"></i>
-          </a>
-        </div>
-        <div class="project-image-wrap">
-          <div class="project-image project-image-pc project-image-slide">
-            <img
-              class="active"
-              src="@/assets/images/project/datalab_01.png"
-              alt=""
-            />
-            <img src="@/assets/images/project/datalab_03.png" alt="" />
-            <img src="@/assets/images/project/datalab_05.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/datalab_02.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/datalab_04.png" alt="" />
-          </div>
-        </div>
-        <div class="project-desc">
-          <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
-          </p>
-          <ul class="project-desc-list">
-            <li>
-              <span>스킬</span>
-              <p>HTML, CSS, SASS, jQuery</p>
-            </li>
-            <li>
-              <span>기간</span>
-              <p>2024. 01 - 2024. 04</p>
-            </li>
-            <li>
-              <span>참여도</span>
-              <p>50%</p>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="project-item">
-        <div class="project-title">
-          <h2>삼성카드</h2>
-          <p>
-            매주 미리 내기, 링크 캘린더, 웰컴 미션, SFC 라운지 화면 개선 및
-            삼성카드 운영
-          </p>
-          <a
-            class="button project-button"
-            href="https://www.samsungcard.com/personal/main/UHPPCO0101M0.jsp"
-            target="_blank"
-          >
-            <span>VISIT</span>
-            <i class="icon icon-arrow-out"></i>
-          </a>
-        </div>
-        <div class="project-image-wrap">
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/samsungcard_01.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile project-image-slide">
-            <img
-              class="active"
-              src="@/assets/images/project/samsungcard_03.png"
-              alt=""
-            />
-            <img src="@/assets/images/project/samsungcard_04.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile project-image-slide">
-            <img
-              class="active"
-              src="@/assets/images/project/samsungcard_05.png"
-              alt=""
-            />
-            <img src="@/assets/images/project/samsungcard_06.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile">
-            <img src="@/assets/images/project/samsungcard_02.png" alt="" />
-          </div>
-        </div>
-        <div class="project-desc">
-          <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
-          </p>
-          <ul class="project-desc-list">
-            <li>
-              <span>스킬</span>
-              <p>HTML, CSS, SASS, jQuery, Vue</p>
-            </li>
-            <li>
-              <span>기간</span>
-              <p>2021. 03 - 2023. 11</p>
-            </li>
-            <li>
-              <span>참여도</span>
-              <p>개선 100%, 운영 25%</p>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="project-item">
-        <div class="project-title">
-          <h2>펫팟</h2>
-          <p>쇼핑몰, 커뮤니티 구축 및 퍼블리싱 가이드 문서 작성</p>
-          <a
-            class="button project-button"
-            href="https://www.petpot.co.kr/"
-            target="_blank"
-          >
-            <span>VISIT</span>
-            <i class="icon icon-arrow-out"></i>
-          </a>
-        </div>
-        <div class="project-image-wrap">
-          <div class="project-image project-image-mobile project-image-slide">
-            <img
-              class="active"
-              src="@/assets/images/project/petpot_01.png"
-              alt=""
-            />
-            <img src="@/assets/images/project/petpot_02.png" alt="" />
-            <img src="@/assets/images/project/petpot_03.png" alt="" />
-          </div>
-          <div class="project-image project-image-mobile project-image-slide">
-            <img
-              class="active"
-              src="@/assets/images/project/petpot_04.png"
-              alt=""
-            />
-            <img src="@/assets/images/project/petpot_05.png" alt="" />
-            <img src="@/assets/images/project/petpot_06.png" alt="" />
-          </div>
-        </div>
-        <div class="project-desc">
-          <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
-          </p>
-          <ul class="project-desc-list">
-            <li>
-              <span>스킬</span>
-              <p>HTML, CSS, jQuery</p>
-            </li>
-            <li>
-              <span>기간</span>
-              <p>2020. 09 - 2021. 02</p>
-            </li>
-            <li>
-              <span>참여도</span>
-              <p>100%</p>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="project-item">
-        <div class="project-title">
-          <h2>키디키디</h2>
-          <p>쇼핑몰 구축 및 퍼블리싱 가이드 문서 작성</p>
-          <a
-            class="button project-button"
-            href="https://kidikidi.elandmall.co.kr/"
-            target="_blank"
-          >
-            <span>VISIT</span>
-            <i class="icon icon-arrow-out"></i>
-          </a>
-        </div>
-        <div class="project-image-wrap">
-          <div class="project-image project-image-pc">
-            <img src="@/assets/images/project/kidikidi_01.png" alt="" />
-          </div>
-        </div>
-        <div class="project-desc">
-          <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
-          </p>
-          <ul class="project-desc-list">
-            <li>
-              <span>스킬</span>
-              <p>HTML, CSS, jQuery</p>
-            </li>
-            <li>
-              <span>기간</span>
-              <p>2020. 02 - 2020. 08</p>
-            </li>
-            <li>
-              <span>참여도</span>
-              <p>50%</p>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="project-item">
-        <div class="project-title">
-          <h2>NESPDF</h2>
-          <p>NESPDF 구축 및 운영</p>
-          <a
-            class="button project-button"
-            href="https://www.nespdf.com/"
-            target="_blank"
-          >
-            <span>VISIT</span>
-            <i class="icon icon-arrow-out"></i>
-          </a>
-        </div>
-        <div class="project-image-wrap">
-          <div class="project-image project-image-pc">
-            <img src="@/assets/images/project/nespdf_01.png" alt="" />
-          </div>
-        </div>
-        <div class="project-desc">
-          <p class="project-number">
-            <span class="project-number-current"></span> <i>/</i>
-            <span class="project-number-total"></span>
-          </p>
-          <ul class="project-desc-list">
-            <li>
-              <span>스킬</span>
-              <p>HTML, CSS</p>
-            </li>
-            <li>
-              <span>기간</span>
-              <p>2017. 12 - 2018. 04</p>
-            </li>
-            <li>
-              <span>참여도</span>
-              <p>100%</p>
-            </li>
-          </ul>
-        </div>
-      </li> -->
     </ul>
   </section>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { data } from '../assets/data';
 
-onMounted(() => {
-  const projectImageSlides = document.querySelectorAll('.project-image-slide');
-  const projectItems = document.querySelectorAll('.project-item');
+const projectSlides = ref([]);
 
-  projectImageSlides.forEach((slide) => {
+onMounted(() => {
+  projectSlides.value = document.querySelectorAll('.project-image-slide');
+
+  projectSlides.value.forEach((slide) => {
     const images = slide.querySelectorAll('img');
     let currentIndex = 0;
     let interval = null;
@@ -324,8 +115,7 @@ onMounted(() => {
     const startSlide = () => {
       interval = setInterval(() => {
         images.forEach((img) => img.classList.remove('active'));
-        currentIndex =
-          currentIndex >= images.length - 1 ? 0 : (currentIndex += 1);
+        currentIndex = currentIndex >= images.length - 1 ? 0 : currentIndex + 1;
         images[currentIndex].classList.add('active');
       }, 2500);
     };
@@ -335,14 +125,6 @@ onMounted(() => {
     startSlide();
     slide.addEventListener('mouseenter', stopSlide);
     slide.addEventListener('mouseout', startSlide);
-  });
-
-  projectItems.forEach((item, index) => {
-    const currentNum = item.querySelector('.project-number-current');
-    const totalNum = item.querySelector('.project-number-total');
-
-    currentNum.textContent = `${index + 1}`;
-    totalNum.textContent = `${projectItems.length}`;
   });
 });
 </script>

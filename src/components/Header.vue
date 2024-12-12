@@ -18,27 +18,28 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+
+const isDark = ref(JSON.parse(localStorage.getItem('isDark')) || false);
+const buttonTheme = ref(null);
+
+const initDarkMode = () => {
+  document.documentElement.classList.toggle('dark', isDark.value);
+  buttonTheme.value.querySelector('span').textContent = isDark.value
+    ? 'Light Mode'
+    : 'Dark Mode';
+};
+
+const toggleDarkMode = () => {
+  isDark.value = !isDark.value;
+  localStorage.setItem('isDark', JSON.stringify(isDark.value));
+  initDarkMode();
+};
 
 onMounted(() => {
-  const buttonTheme = document.querySelector('.header-theme');
-  let isDark = JSON.parse(localStorage.getItem('isDark')) || false;
-
-  const initDarkMode = () => {
-    document.documentElement.classList.toggle('dark', isDark);
-    buttonTheme.querySelector('span').textContent = isDark
-      ? 'Light Mode'
-      : 'Dark Mode';
-  };
-
-  const toggleDarkMode = () => {
-    isDark = !isDark;
-    localStorage.setItem('isDark', JSON.stringify(isDark));
-    initDarkMode();
-  };
-
+  buttonTheme.value = document.querySelector('.header-theme');
+  buttonTheme.value.addEventListener('click', toggleDarkMode);
   initDarkMode();
-  buttonTheme.addEventListener('click', toggleDarkMode);
 });
 </script>
 

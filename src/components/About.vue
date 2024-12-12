@@ -53,77 +53,15 @@
           </div>
         </div>
         <ul class="about-skill-wrap">
-          <li class="about-skill">
+          <li class="about-skill" v-for="(skill, i) in skills" :key="i">
             <div class="circle circle-hover">
               <div class="circle-hover-background"></div>
               <div class="circle-content">
                 <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">HTML5</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">CSS3</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">SASS</p>
-                <p class="circle-text circle-text-bottom">SCSS</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">JavaScript</p>
-                <p class="circle-text circle-text-bottom">ES6+</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">jQuery</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">Vue</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">React</p>
-              </div>
-            </div>
-          </li>
-          <li class="about-skill">
-            <div class="circle circle-hover">
-              <div class="circle-hover-background"></div>
-              <div class="circle-content">
-                <p class="circle-text circle-text-top">SKILL</p>
-                <p class="circle-title">Git</p>
+                <p class="circle-title">{{ skill.title }}</p>
+                <p class="circle-text circle-text-bottom" v-if="skill.text">
+                  {{ skill.text }}
+                </p>
               </div>
             </div>
           </li>
@@ -134,7 +72,20 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+
+const skills = ref([
+  { title: 'HTML5' },
+  { title: 'CSS3' },
+  { title: 'SASS' },
+  { title: 'SCSS', text: 'SCSS' },
+  { title: 'JavaScript', text: 'ES6+' },
+  { title: 'ES6+' },
+  { title: 'jQuery' },
+  { title: 'Vue' },
+  { title: 'React' },
+  { title: 'Git' },
+]);
 
 onMounted(() => {
   const aboutContainer = document.querySelector('.about-container');
