@@ -2,6 +2,14 @@
   <header class="header">
     <div class="header-logo-area">
       <h1 class="header-logo"><a href="/">이영경</a></h1>
+      <a
+        class="header-link"
+        href="https://github.com/lyg323"
+        target="_blank"
+        title="github"
+      >
+        <i class="icon icon-github-mark"></i>
+      </a>
     </div>
     <div class="header-nav-area">
       <nav class="header-nav">
@@ -10,9 +18,7 @@
           <li><a href="#project">PROJECT</a></li>
         </ul>
       </nav>
-      <button type="button" class="header-theme">
-        <span class="blind">Dark Mode</span>
-      </button>
+      <button type="button" class="header-theme" title="Dark Mode"></button>
     </div>
   </header>
 </template>
@@ -25,9 +31,7 @@ const buttonTheme = ref(null);
 
 const initDarkMode = () => {
   document.documentElement.classList.toggle('dark', isDark.value);
-  buttonTheme.value.querySelector('span').textContent = isDark.value
-    ? 'Light Mode'
-    : 'Dark Mode';
+  buttonTheme.value.title = isDark.value ? 'Light Mode' : 'Dark Mode';
 };
 
 const toggleDarkMode = () => {
@@ -59,11 +63,16 @@ onMounted(() => {
   .header-logo-area {
     display: flex;
     gap: 10rem;
+    align-items: center;
   }
 
   .header-logo {
     font-size: 1.8rem;
     font-weight: 500;
+  }
+
+  .header-link {
+    line-height: 0;
   }
 
   .header-time {
