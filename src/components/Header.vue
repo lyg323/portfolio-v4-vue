@@ -14,11 +14,20 @@
     <div class="header-nav-area">
       <nav class="header-nav">
         <ul>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#project">PROJECT</a></li>
+          <li>
+            <a href="#about">ABOUT</a>
+          </li>
+          <li>
+            <a href="#project">PROJECT</a>
+          </li>
         </ul>
       </nav>
-      <button type="button" class="header-theme" title="Dark Mode"></button>
+      <button
+        @click="toggleDarkMode"
+        type="button"
+        class="header-theme"
+        :title="isDark ? 'Light Mode' : 'Dark Mode'"
+      ></button>
     </div>
   </header>
 </template>
@@ -42,7 +51,6 @@ const toggleDarkMode = () => {
 
 onMounted(() => {
   buttonTheme.value = document.querySelector('.header-theme');
-  buttonTheme.value.addEventListener('click', toggleDarkMode);
   initDarkMode();
 });
 </script>

@@ -86,30 +86,34 @@ const skills = ref([
   { title: 'Git' },
 ]);
 
+const aboutContainer = ref(null);
+const aboutInner = ref(null);
+const aboutSkillWrap = ref(null);
+
 onMounted(() => {
-  const aboutContainer = document.querySelector('.about-container');
-  const aboutInner = document.querySelector('.about-inner');
-  const aboutSkillWrap = document.querySelector('.about-skill-wrap');
+  aboutContainer.value = document.querySelector('.about-container');
+  aboutInner.value = document.querySelector('.about-inner');
+  aboutSkillWrap.value = document.querySelector('.about-skill-wrap');
 
   const updateHorizontalScroll = () => {
     if (window.innerWidth > 1024) {
-      const containerRect = aboutContainer.getBoundingClientRect();
-      aboutContainer.style.height = `${aboutSkillWrap.offsetWidth}px`;
+      const containerRect = aboutContainer.value.getBoundingClientRect();
+      aboutContainer.value.style.height = `${aboutSkillWrap.value.offsetWidth}px`;
 
       if (containerRect.top <= 0) {
         const translateX = Math.max(
           containerRect.top * 0.7,
-          -(aboutSkillWrap.offsetWidth - window.innerWidth)
+          -(aboutSkillWrap.value.offsetWidth - window.innerWidth)
         );
 
-        aboutInner.classList.add('about-inner-sticky');
-        aboutSkillWrap.style.transform = `translateX(${translateX}px)`;
+        aboutInner.value.classList.add('about-inner-sticky');
+        aboutSkillWrap.value.style.transform = `translateX(${translateX}px)`;
       } else {
-        aboutInner.classList.remove('about-inner-sticky');
+        aboutInner.value.classList.remove('about-inner-sticky');
       }
     } else {
-      aboutContainer.style.height = 'auto';
-      aboutSkillWrap.style.transform = 'translateX(0)';
+      aboutContainer.value.style.height = 'auto';
+      aboutSkillWrap.value.style.transform = 'translateX(0)';
     }
   };
 

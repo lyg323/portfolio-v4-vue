@@ -103,20 +103,22 @@ import { onMounted, ref } from 'vue';
 import { data } from '../assets/data';
 
 const projectSlides = ref([]);
+let currentIndex = ref(0);
 
 onMounted(() => {
   projectSlides.value = document.querySelectorAll('.project-image-slide');
 
   projectSlides.value.forEach((slide) => {
     const images = slide.querySelectorAll('img');
-    let currentIndex = 0;
+
     let interval = null;
 
     const startSlide = () => {
       interval = setInterval(() => {
         images.forEach((img) => img.classList.remove('active'));
-        currentIndex = currentIndex >= images.length - 1 ? 0 : currentIndex + 1;
-        images[currentIndex].classList.add('active');
+        currentIndex.value =
+          currentIndex.value >= images.length - 1 ? 0 : currentIndex.value + 1;
+        images[currentIndex.value].classList.add('active');
       }, 2500);
     };
 
