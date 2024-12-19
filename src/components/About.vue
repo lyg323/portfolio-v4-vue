@@ -73,6 +73,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import { throttle } from 'lodash';
 
 const skills = ref([
   { title: 'HTML5' },
@@ -96,6 +97,7 @@ onMounted(() => {
   aboutSkillWrap.value = document.querySelector('.about-skill-wrap');
 
   const updateHorizontalScroll = () => {
+    console.log('scroll');
     if (window.innerWidth > 1024) {
       const containerRect = aboutContainer.value.getBoundingClientRect();
       aboutContainer.value.style.height = `${aboutSkillWrap.value.offsetWidth}px`;
@@ -118,8 +120,18 @@ onMounted(() => {
   };
 
   updateHorizontalScroll();
-  window.addEventListener('scroll', updateHorizontalScroll);
-  window.addEventListener('resize', updateHorizontalScroll);
+  window.addEventListener(
+    'scroll',
+    throttle(() => {
+      updateHorizontalScroll();
+    }, 100)
+  );
+  window.addEventListener(
+    'resize',
+    throttle(() => {
+      updateHorizontalScroll();
+    }, 100)
+  );
 });
 </script>
 

@@ -19,6 +19,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import { throttle } from 'lodash';
 import Loading from './components/Loading.vue';
 import Header from './components/Header.vue';
 import About from './components/About.vue';
@@ -89,7 +90,12 @@ onMounted(() => {
   };
 
   updateBgColor();
-  window.addEventListener('scroll', updateBgColor);
+  window.addEventListener(
+    'scroll',
+    throttle(() => {
+      updateBgColor();
+    }, 500)
+  );
 });
 </script>
 
